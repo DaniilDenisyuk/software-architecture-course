@@ -1,2 +1,2 @@
 Rebase preparing
-:`
+Rebase performed:`
