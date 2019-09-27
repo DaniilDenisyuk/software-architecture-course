@@ -1,2 +1,3 @@
-Rebase preparing\n
-Rebase performed\n
+Rebase preparing
+Rebase performed
+New member added
