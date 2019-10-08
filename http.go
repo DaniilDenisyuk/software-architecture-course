@@ -4,6 +4,9 @@ import(
     "net/http"
     "time"
 )
+type data struct {
+  Time string
+}
 
 func main() {
     http.Handle("/time", http.HandlerFunc(GetTime))
@@ -11,8 +14,7 @@ func main() {
 }
 
 func GetTime(w http.ResponseWriter, r *http.Request) {
-    tm := time.Now().Format(time.RFC3339)
-    json, err := json.Marshal("{ time: "+string(tm)+"}")
+    json.Marshal(&data{ Time: time.Now().Format(time.RFC3339) })
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
