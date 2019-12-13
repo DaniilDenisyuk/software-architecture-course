@@ -20,8 +20,8 @@ const readWriteAsync = (dirIn, dirOut) => {
         const md5sum = crypto.createHash('md5');
         const stream = fs.createReadStream(`./${dirIn}/${file}`, err => { if(err) reject(err);});
         stream
-          .on('data', data => {
-            md5sum.update(data);
+          .on('data', chunk => {
+            md5sum.update(chunk);
           })
           .on('end',() => {
             fs.writeFile(`./${dirOut}/${file}.res`, md5sum.digest('hex'),'utf-8', err => {if(err) reject(err);});
